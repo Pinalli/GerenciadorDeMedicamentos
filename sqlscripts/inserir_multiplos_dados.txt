@@ -1,4 +1,5 @@
-INSERT INTO public."Item" ("Id", name)
-VALUES  ('1', 'name1'),
-        ('2', 'name2'),
-        ('3','name3')
+INSERT INTO doencas (nome, descricao, agressividade)
+VALUES  ('Transtorno de Ansiedade', 'como síndrome do pânico, ansiedade generalizada, estresse ou fobia.', false),
+        ('Transtorno Bipolar', 'em que se alterna períodos de depressão e períodos de mania.', true),
+        ('Transtornos Depressivos','em que há vários tipos de depressão.', false)
+		
