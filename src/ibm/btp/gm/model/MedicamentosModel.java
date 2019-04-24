@@ -6,10 +6,10 @@ package ibm.btp.gm.model;
  * Class MedicamentoModel
  *
  */
-public class MedicamentoModel {
+public class MedicamentosModel {
 	
 	private int id;
-	private String remedio;
+	private String nome;
 	private String indicacao;
 	private boolean manha;
 	private boolean tarde;
@@ -20,11 +20,11 @@ public class MedicamentoModel {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getRemedio() {
-		return remedio;
+	public String getNome() {
+		return nome;
 	}
-	public void setRemedio(String remedio) {
-		this.remedio = remedio;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 	public String getIndicacao() {
 		return indicacao;
