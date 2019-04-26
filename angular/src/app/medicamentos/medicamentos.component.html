@@ -1,0 +1,20 @@
+<div class="divMedicamentos">
+    <div class="divMedicamentos">
+        <table class="tableMedicamentos" *ngIf="medicamentos.length > 0">
+            <tr class="trMedicamentos">
+                <th class="thMedicamentos">Nome</th>
+                <th class="thMedicamentos">Indicacao</th>
+                <th class="thMedicamentos">manha</th>
+                <th class="thMedicamentos">tarde</th>
+                <th class="thMedicamentos">noite</th>
+            </tr>
+            <tr class="trMedicamentos" *ngFor="let medicamento of medicamentos">
+                <td class="tdMedicamentos">{{medicamento.nome}}</td>
+                <td class="tdMedicamentos">{{medicamento.indicacao}}</td>
+                <td class="tdMedicamentos">{{medicamento.manha}}</td>
+                <td class="tdMedicamentos">{{medicamento.tarde}}</td>
+                <td class="tdMedicamentos">{{medicamento.noite}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

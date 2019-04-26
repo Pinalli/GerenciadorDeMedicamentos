@@ -1,15 +1,15 @@
-<div>
-    <div>
-        <table *ngIf="doencas.length > 0">
-            <tr>
-                <th>Nome</th>
-                <th>Desc</th>
-                <th>agressividade</th>
+<div class="divlistadoencas">
+    <div class="divlistadoencas">
+        <table class="tablelistadoencas" *ngIf="doencas.length > 0">
+            <tr class="trlistadoencas">
+                <th class="thlistadoencas">Nome</th>
+                <th class="thlistadoencas">Desc</th>
+                <th class="thlistadoencas">agressividade</th>
             </tr>
-            <tr *ngFor="let doenca of doencas">
-                <td >{{doenca.nome}}</td>
-                <td>{{doenca.descricao}}</td>
-                <td>{{doenca.agressividade}}</td>
+            <tr class="trlistadoencas" *ngFor="let doenca of doencas">
+                <td class="thlistadoencas">{{doenca.nome}}</td>
+                <td class="thlistadoencas">{{doenca.descricao}}</td>
+                <td class="thlistadoencas">{{doenca.agressividade}}</td>
             </tr>
         </table>
     </div>
