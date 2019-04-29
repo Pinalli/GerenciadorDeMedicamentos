@@ -1,4 +1,4 @@
-package ibm.btp.gm.rest;
+package ibm.btp.gm.webService;
 
 import java.util.ArrayList;
 
@@ -9,15 +9,15 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
 
-import ibm.btp.gm.dao.DoencaDAO;
 import ibm.btp.gm.model.DoencaModel;
+import ibm.btp.gm.services.DoencaService;
 
 @Path("/doencas")  //Path como uma pasta
-public class DoencaService {
+public class DoencaWebService {
 	@Context
 	private UriInfo context;
 	
-	public DoencaService() {
+	public DoencaWebService() {
 		
 	}
 	
@@ -25,7 +25,7 @@ public class DoencaService {
 	@Path("/list")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<DoencaModel> listarDoencas(){
-		return new DoencaDAO().listar();
+		return new DoencaService().listar();
 	}
 	
 	

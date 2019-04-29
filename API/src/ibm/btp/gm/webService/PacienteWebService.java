@@ -1,4 +1,4 @@
-package ibm.btp.gm.rest;
+package ibm.btp.gm.webService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import javax.ws.rs.core.MediaType;
 import ibm.btp.gm.model.PacienteModel;
 
 @Path("/paciente")
-public class PacienteService {
+public class PacienteWebService {
 
 	@GET
 	@Path("/list")

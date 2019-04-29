@@ -3,10 +3,10 @@ import { MedicamentosService } from '../services/medicamentos.service';
 
 @Component({
   selector: 'app-medicamentos',
-  templateUrl: './medicamentos.component.html',
-  styleUrls: ['./medicamentos.component.sass']
+  templateUrl: './listamedicamentos.component.html',
+  styleUrls: ['./listamedicamentos.component.sass']
 })
-export class MedicamentosComponent implements OnInit {
+export class ListamedicamentosComponent implements OnInit {
 
     medicamentos: any = [];
   constructor(private service: MedicamentosService) { }
