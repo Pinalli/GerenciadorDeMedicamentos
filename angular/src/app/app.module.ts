@@ -7,15 +7,19 @@ import { ListardoencasService } from './listadoencas/listardoencas.service';
 import { HttpClientModule } from '@angular/common/http';
 
 import { RouterModule, Routes } from '@angular/router';
+import { MedicamentosComponent } from './medicamentos/medicamentos.component';
+import { MedicamentosService } from './medicamentos/medicamentos.service';
 
 const appRoutes: Routes = [
-    {path: 'doencas/list', component: ListadoencasComponent}
+    {path: 'doencas/list', component: ListadoencasComponent},
+    {path: 'medicamentos/list', component: MedicamentosComponent}
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListadoencasComponent
+    ListadoencasComponent,
+    MedicamentosComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,7 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [ListardoencasService],
+  providers: [ListardoencasService, MedicamentosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
