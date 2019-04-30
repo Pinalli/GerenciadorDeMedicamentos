@@ -8,9 +8,9 @@ import java.util.logging.Logger;
 
 public class ConnectionFactory {
     private final static String DRIVER = "org.postgresql.Driver";
-    private final static String URL = "jdbc:postgresql://9.86.181.97:5432/Hospital";
+    private final static String URL = "jdbc:postgresql://9.86.181.222:5432/Hospital";
     private final static String USERNAME = "postgres";
-    private final static String PASSWORD = "123456";
+    private final static String PASSWORD = "admin";
     
     public static Connection getConnection() {
         Connection conexao = null;

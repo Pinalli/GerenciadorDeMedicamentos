@@ -2,15 +2,15 @@
     <div class="divlistahistorico">
         <table class="tablelistahistorico" *ngIf="historico.length > 0">
             <tr class="trlistahistorico">
-                <th class="thlistahistorico">Paciente</th>
-                <th class="thlistahistorico">Medicamento</th>
-                <th class="thlistahistorico">Doenca</th>
+                <th class="thlistahistorico">ID Paciente</th>
+                <th class="thlistahistorico">ID Medicamento</th>
+                <th class="thlistahistorico">ID Doenca</th>
                 <th class="thlistahistorico">Data</th>
             </tr>
             <tr class="trlistadoencas" *ngFor="let historico of historico">
-                <td class="thlistadoencas">{{historico.paciente}}</td>
-                <td class="thlistadoencas">{{historico.medicamento}}</td>
-                <td class="thlistadoencas">{{historico.doenca}}</td>
+                <td class="thlistadoencas">{{historico.idpaciente}}</td>
+                <td class="thlistadoencas">{{historico.idmedicamento}}</td>
+                <td class="thlistadoencas">{{historico.iddoenca}}</td>
                 <td class="thlistadoencas">{{historico.data}}</td>
             </tr>
         </table>
