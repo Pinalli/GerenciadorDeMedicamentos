@@ -12,4 +12,8 @@ export class HistoricoService {
   Listahistorico() {
       return this.http.get('http://localhost:8080/gerenciadorMedicamentos/rest/historico/list/');
     }
+
+  IncluirHistorico() {
+      return this.http.get('http://localhost:8080/gerenciadorMedicamentos/rest/historico/list/');
+  }
 }

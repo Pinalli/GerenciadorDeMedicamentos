@@ -11,5 +11,17 @@ public class HistoricoService {
 		
 		return new HistoricoDAO().ListarHistorico();
 	}
+	
+	public Integer incluir(HistoricoModel historicoModel) {
+		
+		try {
+			
+			
+			return new HistoricoDAO().Incluir(historicoModel);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return 1;
+	}
 
 }
