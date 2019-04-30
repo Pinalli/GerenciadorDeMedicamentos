@@ -9,13 +9,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListamedicamentosComponent } from './listamedicamentos/listamedicamentos.component';
 import { DoencasService } from './services/doencas.service';
 import { MedicamentosService } from './services/medicamentos.service';
+
 import { ListarpacientesComponent } from './listarpacientes/listarpacientes.component';
 import { PacienteService } from './services/paciente.service';
+
+import { ListahistoricoComponent } from './listahistorico/listahistorico.component';
+import { HistoricoService } from './services/historico.service';
+
 
 const appRoutes: Routes = [
     {path: 'doencas/list', component: ListadoencasComponent},
     {path: 'medicamentos/list', component: ListamedicamentosComponent},
-    {path: 'pacientes/list', component: ListarpacientesComponent}
+    {path: 'pacientes/list', component: ListarpacientesComponent},
+    {path: 'historico/list', component: ListahistoricoComponent}
 ];
 
 @NgModule({
@@ -23,7 +29,8 @@ const appRoutes: Routes = [
     AppComponent,
     ListadoencasComponent,
     ListamedicamentosComponent,
-    ListarpacientesComponent
+    ListarpacientesComponent,
+    ListahistoricoComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +40,9 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [DoencasService, MedicamentosService, PacienteService],
+
+  providers: [DoencasService, MedicamentosService, PacienteService, HistoricoService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

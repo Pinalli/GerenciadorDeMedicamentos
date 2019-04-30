@@ -10,7 +10,7 @@
     <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
     <init-param>
       <param-name>jersey.config.server.provider.packages</param-name>
-      <param-value>ibm.btp.gm.rest</param-value>
+      <param-value>ibm.btp.gm.webService</param-value>
     </init-param>
     <init-param>
       <param-name>com.sun.jersey.json.POJOMappingFeature</param-name>
