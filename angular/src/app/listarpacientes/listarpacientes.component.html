@@ -1,0 +1,29 @@
+<div class="divlistarpacientes">
+    <div class="divlistarpacientes">
+        <table class="tablelistarpacientes" *ngIf="pacientes.length > 0">
+            <tr class="trlistarpacientes">
+                <th class="thlistarpacientes">Nome</th>
+                <th class="thlistarpacientes">Gênero</th>
+                <th class="thlistarpacientes">Doença 1</th>
+                <th class="thlistarpacientes">Doença 2</th>
+                <th class="thlistarpacientes">Doença 3</th>
+                <th class="thlistarpacientes">Medicamento 1</th>
+                <th class="thlistarpacientes">Medicamento 2</th>
+                <th class="thlistarpacientes">Medicamento 3</th>
+
+            </tr>
+            <tr class="trlistarpacientes" *ngFor="let paciente of pacientes">
+                <td class="thlistarpacientes">{{paciente.nome}}</td>
+                <td class="thlistarpacientes">{{paciente.genero}}</td>
+                <td class="thlistarpacientes">{{paciente.doenca_1}}</td>
+                <td class="thlistarpacientes">{{paciente.doenca_2}}</td>
+                <td class="thlistarpacientes">{{paciente.doenca_3}}</td>
+                <td class="thlistarpacientes">{{paciente.medicamento_1}}</td>
+                <td class="thlistarpacientes">{{paciente.medicamento_2}}</td>
+                <td class="thlistarpacientes">{{paciente.medicamento_3}}</td>
+                
+
+            </tr>
+        </table>
+    </div>
+</div>
