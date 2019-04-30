@@ -1,6 +1,5 @@
 package ibm.btp.gm.dao;
 
-import java.beans.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -28,7 +27,7 @@ public class HistoricoDAO {
 				historico.setIdDoenca(result.getInt("idDoenca"));
 				historico.setIdMedicamento(result.getInt("idMedicamento"));
 				historico.setIdPaciente(result.getInt("idPaciente"));
-				historico.setData(result.getTimestamp("dataHora"));
+				historico.setDataHora(result.getTimestamp("dataHora"));
 				
 				lHistorico.add(historico);
 				

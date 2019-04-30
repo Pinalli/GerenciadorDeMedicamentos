@@ -8,7 +8,7 @@ public class HistoricoModel {
 	private Integer idMedicamento;
 	private Integer idDoenca;
 	private Integer idPaciente;
-	private Timestamp data;
+	private Timestamp dataHora;
 	
 	public Integer getId() {
 		return id;
@@ -34,11 +34,11 @@ public class HistoricoModel {
 	public void setIdPaciente(Integer idPaciente) {
 		this.idPaciente = idPaciente;
 	}
-	public Timestamp getData() {
-		return data;
+	public Timestamp getDataHora() {
+		return dataHora;
 	}
-	public void setData(Timestamp data) {
-		this.data = data;
+	public void setDataHora(Timestamp data) {
+		this.dataHora = data;
 	}
 	
 }
