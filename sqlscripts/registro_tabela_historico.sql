@@ -1,8 +1,7 @@
-create table Historico (
+create table historico (
 	id SERIAL PRIMARY KEY,
-	medicamento INTEGER REFERENCES Medicamentos(id),
-	hora TIMESTAMP,
-	dia DATE,
-	id_paciente INTEGER REFERENCES Pacientes(id),
-	doenca INTEGER REFERENCES Doencas(id)
+	idmedicamento INTEGER REFERENCES Medicamentos(id),
+	datahora TIMESTAMP,
+	idpaciente INTEGER REFERENCES Pacientes(id),
+	iddoenca INTEGER REFERENCES Doencas(id)
 )
