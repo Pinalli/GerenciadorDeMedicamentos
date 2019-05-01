@@ -9,23 +9,25 @@ import { HistoricoService } from '../services/historico.service';
 })
 export class ListarpacientesComponent implements OnInit {
 
-       pacientes: any = [];
+    pacientes: any = [];
 
-  constructor(private service: PacienteService) { }
+    constructor(private service: PacienteService) { }
 
-  ngOnInit() {
-      this.service.listarPacientes().subscribe(
-          (data: any) => {
-        const results = data;
-        for (const paciente of results) {
-            this.pacientes.push(paciente);
+    ngOnInit() {
+        this.service.listarPacientes().subscribe(
+            (data: any) => {
+                const results = data;
+                for (const paciente of results) {
+                    this.pacientes.push(paciente);
+                }
             }
-        }
-      );
+        );
 
-      }
+    }
+      
       medicar(paciente: any) {
         this.HistoricoService.medicar(paciente);
       }
+    }
 
-}
+
