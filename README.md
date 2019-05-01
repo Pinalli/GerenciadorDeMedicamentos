@@ -1,6 +1,7 @@
 Para executar angular:
 
 npm install
+<br/>
 ng serve
 
 "# Gerenciador_Medicamentos" 
