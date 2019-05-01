@@ -12,22 +12,20 @@ import javax.ws.rs.core.UriInfo;
 import ibm.btp.gm.model.DoencaModel;
 import ibm.btp.gm.services.DoencaService;
 
-@Path("/doencas")  //Path como uma pasta
+@Path("/doencas") // Path como uma pasta
 public class DoencaWebService {
 	@Context
 	private UriInfo context;
-	
+
 	public DoencaWebService() {
-		
+
 	}
-	
+
 	@GET
 	@Path("/list")
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<DoencaModel> listarDoencas(){
-		return new DoencaService().listar();
+	public ArrayList<DoencaModel> listarDoencas() {
+		return new DoencaService().read();
 	}
-	
-	
 
 }
