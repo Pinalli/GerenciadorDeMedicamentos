@@ -7,7 +7,7 @@ import ibm.btp.gm.model.PacienteModel;
 
 public class PacienteService {
 
-	public ArrayList<PacienteModel> listar() {
+	public ArrayList<PacienteModel> read() {
 
 		return new PacienteDAO().read();
 	}
