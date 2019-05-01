@@ -27,7 +27,7 @@ public class HistoricoWebService {
 	@Path("/add")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
-	public Integer incluirHistorico(HistoricoModel historicoModel) {
+	public boolean incluirHistorico(HistoricoModel historicoModel) {
 		System.out.println("teste teste " + historicoModel.getIdPaciente());
 		return new HistoricoService().incluir(historicoModel);
 	}

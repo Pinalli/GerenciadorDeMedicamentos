@@ -11,17 +11,9 @@ public class HistoricoService {
 
 		return new HistoricoDAO().read();
 	}
-	
-	public Integer incluir(HistoricoModel historicoModel) {
-		
-		try {
-			
-			
-			return new HistoricoDAO().Incluir(historicoModel);
-		}catch (Exception e) {
-			// TODO: handle exception
-		}
-		return 1;
+
+	public boolean incluir(HistoricoModel historicoModel) {
+		return new HistoricoDAO().create(historicoModel);
 	}
 
 }
