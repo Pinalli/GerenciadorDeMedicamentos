@@ -6,10 +6,10 @@ import ibm.btp.gm.dao.HistoricoDAO;
 import ibm.btp.gm.model.HistoricoModel;
 
 public class HistoricoService {
-	
-	public ArrayList<HistoricoModel> listar(){
-		
-		return new HistoricoDAO().ListarHistorico();
+
+	public ArrayList<HistoricoModel> listar() {
+
+		return new HistoricoDAO().read();
 	}
 
 }

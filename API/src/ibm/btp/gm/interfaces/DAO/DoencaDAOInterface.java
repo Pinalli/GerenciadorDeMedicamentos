@@ -6,13 +6,13 @@ import ibm.btp.gm.model.DoencaModel;
 
 public interface DoencaDAOInterface {
 
-	public boolean create(DoencaModel h);
+	public boolean create(DoencaModel d);
 
 	public ArrayList<DoencaModel> read();
 
-	public boolean delete(DoencaModel h);
+	public boolean delete(DoencaModel d);
 
-	public boolean update(DoencaModel h);
+	public boolean update(DoencaModel d);
 
 	public DoencaModel readById(int Id);
 }

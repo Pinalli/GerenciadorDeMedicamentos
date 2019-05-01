@@ -6,13 +6,13 @@ import ibm.btp.gm.model.MedicamentosModel;
 
 public interface MedicamentosDAOInterface {
 
-	public boolean create(MedicamentosModel d);
+	public boolean create(MedicamentosModel m);
 
 	public ArrayList<MedicamentosModel> read();
 
-	public boolean delete(MedicamentosModel d);
+	public boolean delete(MedicamentosModel m);
 
-	public boolean update(MedicamentosModel d);
+	public boolean update(MedicamentosModel m);
 
 	public MedicamentosModel readById(int Id);
 }
