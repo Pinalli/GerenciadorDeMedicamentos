@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="br">
+
 <head>
   <meta charset="utf-8">
   <title>Gerenciador</title>
@@ -7,20 +8,35 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+    integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <a href="/">Home</a>
-    <br>
-    <a href="/doencas/list">Lista de Doencas</a>
-    <br>
-    <a href="/medicamentos/list">Lista de Medicamentos</a>
-        <br>
-    <a href="/pacientes/list">Lista de Pacientes</a>
-    <br>
-    <a href="/historico/list">Lista dos Historicos</a>
+  <header>
+    <div class="container">
+      <ul>
+        <li class="col-md-3 index-button index-button--1"><a href="/doencas/list">Lista de Doenças</a></li>
+        <li class="col-md-3 index-button index-button--2"><a href="/medicamentos/list">Lista de Medicamentos</a></li>
+        <li class="col-md-3 index-button index-button--3"><a href="/pacientes/list">Lista de Pacientes</a></li>
+        <li class="col-md-3 index-button index-button--4"><a href="/historico/list">Lista de Históricos</a></li>
+      </ul>
+    </div>
+  </header>
   <app-root>
-      
-      
+
+
   </app-root>
 </body>
+
 </html>

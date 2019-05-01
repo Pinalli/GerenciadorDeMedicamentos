@@ -7,26 +7,46 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import ibm.btp.gm.config.ConnectionFactory;
+import ibm.btp.gm.interfaces.DAO.HistoricoDAOInterface;
 import ibm.btp.gm.model.HistoricoModel;
 
-import org.apache.commons.dbutils.DbUtils;
+public class HistoricoDAO implements HistoricoDAOInterface {
 
-public class HistoricoDAO {
+	@Override
+	public boolean create(HistoricoModel h) {
+		try {
+			Connection connection = ConnectionFactory.getConnection();
+			String command = "INSERT INTO historico(idmedicamento,datahora,idpaciente, iddoenca) VALUES (?,?,?,?)";
+			PreparedStatement statement = connection.prepareStatement(command);
+			statement.setInt(1, h.getIdMedicamento());
+			statement.setTimestamp(2, h.getDataHora());
+			statement.setInt(3, h.getIdPaciente());
+			statement.setInt(4, h.getIdDoenca());
 
-	public ArrayList<HistoricoModel> ListarHistorico() {
+			statement.executeUpdate();
+
+			statement.close();
+			connection.close();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public ArrayList<HistoricoModel> read() {
 		ArrayList<HistoricoModel> lHistorico = new ArrayList<>();
-		Connection conexao = null;
-		PreparedStatement statement = null;
-		ResultSet result = null;
 
 		try {
-			conexao = ConnectionFactory.getConnection();
+			Connection conexao = ConnectionFactory.getConnection();
 
 			String sql = "SELECT * FROM HISTORICO";
-			statement = conexao.prepareStatement(sql);
-			result = statement.executeQuery();
+			PreparedStatement statement = conexao.prepareStatement(sql);
+			ResultSet result = statement.executeQuery();
 
 			while (result.next()) {
+
 				HistoricoModel historico = new HistoricoModel();
 				historico.setId(result.getInt("id"));
 				historico.setIdDoenca(result.getInt("idDoenca"));
@@ -35,52 +55,90 @@ public class HistoricoDAO {
 				historico.setDataHora(result.getTimestamp("dataHora"));
 
 				lHistorico.add(historico);
+
 			}
 
-		} catch (SQLException e) {
-			// TODO: handle exception
-			System.out.println("SQL ERRO");
-		} finally {
-			DbUtils.closeQuietly(statement);
-			DbUtils.closeQuietly(result);
-			DbUtils.closeQuietly(conexao);
-		}
+			statement.close();
+			conexao.close();
 
-		return lHistorico;
+			return lHistorico;
+
+		} catch (SQLException e) {
+			System.out.println("SQL ERRO");
+			return null;
+		}
 	}
 
-	public Integer Incluir(HistoricoModel historicoModel) {
-		Connection conexao = null;
-		PreparedStatement statement = null;
-
+	@Override
+	public boolean delete(HistoricoModel h) {
 		try {
-			conexao = ConnectionFactory.getConnection();
-
-			String sql = "INSERT INTO HISTORICO (IDMEDICAMENTO, DATAHORA, IDPACIENTE, IDDOENCA) VALUES (?,?,?,?)";
-
-			statement = conexao.prepareStatement(sql);
-			statement.setInt(1, historicoModel.getIdMedicamento());
-			statement.setTimestamp(2, this.getCurrentTimeStamp());
-			statement.setInt(3, historicoModel.getIdPaciente());
-			statement.setInt(4, historicoModel.getIdDoenca());
+			Connection connection = ConnectionFactory.getConnection();
+			String command = "DELETE FROM historico WHERE id=?";
+			PreparedStatement statement = connection.prepareStatement(command);
+			statement.setInt(1, h.getId());
 
 			statement.executeUpdate();
 
-		} catch (SQLException ex) {
-			System.out.println("SQL ERROR");
-		} finally {
-			DbUtils.closeQuietly(statement);
-			DbUtils.closeQuietly(conexao);
+			statement.close();
+			connection.close();
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
 		}
-
-		return 1;
 	}
 
-	private java.sql.Timestamp getCurrentTimeStamp() {
+	@Override
+	public boolean update(HistoricoModel h) {
+		try {
+			Connection connection = ConnectionFactory.getConnection();
 
-		java.util.Date today = new java.util.Date();
-		return new java.sql.Timestamp(today.getTime());
+			String command = "UPDATE historico " + "SET idmedicamento=?, datahora=?, idpaciente=?, iddoenca=?"
+					+ "WHERE id=?";
 
+			PreparedStatement statement = connection.prepareStatement(command);
+			statement.setInt(1, h.getIdMedicamento());
+			statement.setTimestamp(2, h.getDataHora());
+			statement.setInt(3, h.getIdPaciente());
+			statement.setInt(4, h.getIdDoenca());
+			statement.setInt(5, h.getId());
+
+			statement.executeUpdate();
+
+			statement.close();
+			connection.close();
+			return true;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	@Override
+	public HistoricoModel readById(int Id) {
+		Connection connection = ConnectionFactory.getConnection();
+		String sql = "SELECT * FROM historico WHERE id=?";
+		try {
+			PreparedStatement statement = connection.prepareStatement(sql);
+			statement.setInt(1, Id);
+
+			ResultSet result = statement.executeQuery();
+
+			statement.close();
+			connection.close();
+
+			if (result == null) {
+				throw new SQLException("Historico not found");
+			}
+
+			return new HistoricoModel(result.getInt("id"), result.getInt("idmedicamento"), result.getInt("iddoenca"),
+					result.getInt("idpaciente"), result.getTimestamp("datahora"));
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

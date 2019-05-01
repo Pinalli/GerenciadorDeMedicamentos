@@ -6,9 +6,9 @@ import ibm.btp.gm.dao.MedicamentosDAO;
 import ibm.btp.gm.model.MedicamentosModel;
 
 public class MedicamentoService {
-	
+
 	public ArrayList<MedicamentosModel> listar() {
-		return new MedicamentosDAO().ListaMedicamentos();
+		return new MedicamentosDAO().read();
 	}
 
 }

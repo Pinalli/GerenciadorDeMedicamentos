@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PacienteService } from '../services/paciente.service';
+import { HistoricoService } from '../services/historico.service';
 
 @Component({
     selector: 'app-listarpacientes',
@@ -22,6 +23,11 @@ export class ListarpacientesComponent implements OnInit {
             }
         );
 
-
     }
-}
+      
+      medicar(paciente: any) {
+        this.HistoricoService.medicar(paciente);
+      }
+    }
+
+

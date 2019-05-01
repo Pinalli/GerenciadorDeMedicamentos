@@ -8,6 +8,6 @@ import ibm.btp.gm.model.DoencaModel;
 public class DoencaService {
 
 	public ArrayList<DoencaModel> listar(){
-		return new DoencaDAO().listar();
+		return new DoencaDAO().read();
 	}
 }
