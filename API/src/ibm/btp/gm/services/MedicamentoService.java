@@ -6,11 +6,9 @@ import ibm.btp.gm.dao.MedicamentosDAO;
 import ibm.btp.gm.interfaces.services.MedicamentosServiceInterface;
 import ibm.btp.gm.model.MedicamentosModel;
 
-public class MedicamentoService implements MedicamentosServiceInterface  {
+public class MedicamentoService implements MedicamentosServiceInterface{
 
-	@Override
 	public ArrayList<MedicamentosModel> read() {
-	
 		return new MedicamentosDAO().read();
 	}
 

@@ -9,27 +9,26 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import ibm.btp.gm.interfaces.webServices.HistoricoWebServiceInterface;
 import ibm.btp.gm.model.HistoricoModel;
 import ibm.btp.gm.services.HistoricoService;
 
 @Path("/historico")
-public class HistoricoWebService {
+public class HistoricoWebService implements HistoricoWebServiceInterface {
 
 	@GET
-	@Path("/list")
+	@Path("/read")
 	@Produces(MediaType.APPLICATION_JSON)
-	public ArrayList<HistoricoModel> listarHistorico() {
+	public ArrayList<HistoricoModel> read() {
 
 		return new HistoricoService().read();
 	}
 
 	@POST
-	@Path("/add")
+	@Path("/create")
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.TEXT_PLAIN)
-	public boolean incluirHistorico(HistoricoModel historicoModel) {
-		System.out.println("teste teste " + historicoModel.getIdPaciente());
-		return new HistoricoService().create(historicoModel);
+	public boolean create(HistoricoModel h) {
+		return new HistoricoService().create(h);
 	}
 
 }

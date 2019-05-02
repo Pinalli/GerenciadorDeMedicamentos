@@ -6,7 +6,7 @@ import ibm.btp.gm.dao.HistoricoDAO;
 import ibm.btp.gm.interfaces.services.HistoricoServiceInterface;
 import ibm.btp.gm.model.HistoricoModel;
 
-public class HistoricoService implements HistoricoServiceInterface {
+public class HistoricoService implements HistoricoServiceInterface{
 
 	public ArrayList<HistoricoModel> read() {
 
@@ -35,6 +35,7 @@ public class HistoricoService implements HistoricoServiceInterface {
 	public HistoricoModel readById(int id ) {
 	
 		return new HistoricoDAO().readById(id);
+
 	}
 
 }
