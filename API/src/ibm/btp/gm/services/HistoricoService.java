@@ -12,27 +12,30 @@ public class HistoricoService implements HistoricoServiceInterface{
 
 		return new HistoricoDAO().read();
 	}
-	
+
 	public boolean create(HistoricoModel historicoModel) {
-			return new HistoricoDAO().create(historicoModel);
+
+		return new HistoricoDAO().create(historicoModel);
+
 	}
 
 	@Override
-	public boolean delete(HistoricoModel h) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean delete(HistoricoModel  historicoModel) {
+		
+		return new HistoricoDAO().delete(historicoModel);
 	}
 
 	@Override
-	public boolean update(HistoricoModel h) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean update(HistoricoModel  historicoModel) {
+
+		return new HistoricoDAO().update(historicoModel);
 	}
 
 	@Override
-	public HistoricoModel readById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public HistoricoModel readById(int id ) {
+	
+		return new HistoricoDAO().readById(id);
+
 	}
 
 }
