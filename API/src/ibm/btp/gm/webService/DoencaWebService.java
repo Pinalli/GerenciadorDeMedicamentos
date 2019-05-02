@@ -52,7 +52,7 @@ public class DoencaWebService implements DoencaWebServiceInterface{
 	}
 	
 	@GET
-	@Path("/read/{id}")
+	@Path("/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public DoencaModel readById(@PathParam("id") int id)
 	{

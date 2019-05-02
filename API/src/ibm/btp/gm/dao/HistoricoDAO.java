@@ -128,13 +128,19 @@ public class HistoricoDAO implements HistoricoDAOInterface {
 			statement.close();
 			connection.close();
 
-			if (result == null) {
-				throw new SQLException("Historico not found");
+			if (!result.next()) {
+				return null;
 			}
-
-			return new HistoricoModel(result.getInt("id"), result.getInt("idmedicamento"), result.getInt("iddoenca"),
-					result.getInt("idpaciente"), result.getTimestamp("datahora"));
-
+			
+			HistoricoModel historico = new HistoricoModel();
+			historico.setId(result.getInt("id"));
+			historico.setIdDoenca(result.getInt("idDoenca"));
+			historico.setIdMedicamento(result.getInt("idMedicamento"));
+			historico.setIdPaciente(result.getInt("idPaciente"));
+			historico.setDataHora(result.getTimestamp("dataHora"));
+			
+			return historico;
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;

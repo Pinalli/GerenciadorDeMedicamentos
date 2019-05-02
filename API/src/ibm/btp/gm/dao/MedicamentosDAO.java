@@ -130,15 +130,22 @@ public class MedicamentosDAO implements MedicamentosDAOInterface {
 
 			ResultSet result = statement.executeQuery();
 
+			MedicamentosModel medicamento = new MedicamentosModel();
+			medicamento.setId(result.getInt("id"));
+			medicamento.setIndicacao(result.getString("indicacao"));
+			medicamento.setManha(result.getBoolean("manha"));
+			medicamento.setNoite(result.getBoolean("noite"));
+			medicamento.setTarde(result.getBoolean("tarde"));
+			medicamento.setNome(result.getString("nome"));
+			
 			statement.close();
 			connection.close();
 
-			if (result == null) {
-				throw new SQLException("Doenca not found");
+			if (!result.next()) {
+				return null;
 			}
 
-			return new MedicamentosModel(result.getInt("id"), result.getString("nome"), result.getString("indicacao"),
-					result.getBoolean("manha"), result.getBoolean("tarde"), result.getBoolean("noite"));
+			return medicamento;
 
 		} catch (SQLException e) {
 			e.printStackTrace();

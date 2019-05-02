@@ -6,9 +6,3 @@ create table Medicamentos (
 	tarde BOOLEAN,
 	noite BOOLEAN
 )
-
-Exemplo:
-INSERT INTO Medicamentos
-(nome, indicacao, manha, tarde, noite)
-VALUES
-('Remedio teste', 'tres vezes ao dia', true, false, true)
