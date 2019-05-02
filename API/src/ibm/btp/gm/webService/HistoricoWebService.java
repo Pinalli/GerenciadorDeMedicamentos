@@ -9,6 +9,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import ibm.btp.gm.model.HistoricoModel;
 import ibm.btp.gm.services.HistoricoService;
 
@@ -26,9 +29,12 @@ public class HistoricoWebService {
 	@POST
 	@Path("/add")
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.TEXT_PLAIN)
-	public boolean incluirHistorico(HistoricoModel historicoModel) {
-		System.out.println("teste teste " + historicoModel.getIdPaciente());
+	@Produces(MediaType.APPLICATION_JSON)
+	public boolean incluirHistorico(String sHistoricoModel) {
+		Gson gson = new GsonBuilder().create();
+		HistoricoModel historicoModel = gson.fromJson(sHistoricoModel, HistoricoModel.class);
+		
+		System.out.println("teste teste " + historicoModel.getIdPaciente() +  sHistoricoModel);
 		return new HistoricoService().incluir(historicoModel);
 	}
 

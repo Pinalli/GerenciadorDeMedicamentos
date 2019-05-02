@@ -31,7 +31,7 @@ public class FiltroCORS implements Filter {
 
         response.addHeader("Access-Control-Allow-Origin", "*");
         response.addHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-        response.addHeader("Access-Control-Allow-Headers", "Content-Type");
+        response.addHeader("Access-Control-Allow-Headers", "Content-Type,X-Requested-With,Accept,Authorization,Origin,Access-Control-Request-Method,Access-Control-Request-Headers");
         if(request.getMethod().equals("OPTIONS")){
             response.setStatus(HttpServletResponse.SC_ACCEPTED);
         }

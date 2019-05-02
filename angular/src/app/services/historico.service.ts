@@ -10,7 +10,7 @@ import { Historico } from '../shared/historico';
 })
 export class HistoricoService {
 
-    apiURL = 'localhost:8080/gerenciadorMedicamentos/rest/historico/';
+    apiURL = 'http://localhost:8080/gerenciadorMedicamentos/rest/historico/';
 
     constructor(private http: HttpClient) { }
 
@@ -25,9 +25,14 @@ export class HistoricoService {
     }
 
     criarHistorico(historico): Observable<Historico> {
-        return this.http.post<Historico>(this.apiURL + 'add', JSON.stringify(historico)).
+        const headers = new HttpHeaders();
+        headers.append('Accept', 'application/json');
+        headers.append('Content-Type', 'application/json');
+
+        return this.http.post<Historico>(this.apiURL + 'add',
+         JSON.stringify(historico), { headers }).
             pipe(
-                retry(1), catchError(this.handleError))
+                retry(1), catchError(this.handleError));
     }
 
     handleError(error) {
