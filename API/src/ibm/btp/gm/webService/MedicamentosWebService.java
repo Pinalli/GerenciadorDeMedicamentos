@@ -17,6 +17,6 @@ public class MedicamentosWebService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<MedicamentosModel> listarMedicamentos() {
 
-		return new MedicamentoService().listar();
+		return new MedicamentoService().read();
 	}
 }

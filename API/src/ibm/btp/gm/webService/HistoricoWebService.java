@@ -20,16 +20,16 @@ public class HistoricoWebService {
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<HistoricoModel> listarHistorico() {
 
-		return new HistoricoService().listar();
+		return new HistoricoService().read();
 	}
 
 	@POST
 	@Path("/add")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
-	public Integer incluirHistorico(HistoricoModel historicoModel) {
+	public boolean incluirHistorico(HistoricoModel historicoModel) {
 		System.out.println("teste teste " + historicoModel.getIdPaciente());
-		return new HistoricoService().incluir(historicoModel);
+		return new HistoricoService().create(historicoModel);
 	}
 
 }
