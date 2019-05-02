@@ -14,18 +14,7 @@ export class HistoricoService {
   constructor(private http: HttpClient) {}
 
   Listahistorico() {
-      return this.http.get('http://localhost:8080/gerenciadorMedicamentos/rest/historico/list/');
+      return this.http.get('http://localhost:8080/gerenciadorMedicamentos/rest/historico/read/');
     }
 
-    medicar(paciente: any) {
-      const bodyString = JSON.stringify(paciente);
-      const cabecalho = new Headers({'Content-Type': 'application/json'});
-      const options = new RequestOptions({headers: cabecalho});
-
-      return this.http.post('localhost:8080/gerenciadorMedicamentos/rest/historico/add', bodyString, options)
-      .map( (res:Response) => {} )
-      .catch( (error:any) => Observable.throw(error));
-        // this.pessoas.push(pessoa);
-  }
     }
-}

@@ -9,6 +9,6 @@ export class DoencasService {
   constructor(private http: HttpClient) {}
 
   listarDoencas() {
-      return this.http.get('http://localhost:8080/gerenciadorMedicamentos/rest/doencas/list/');
+      return this.http.get('http://localhost:8080/gerenciadorMedicamentos/rest/doenca/read');
   }
 }

@@ -9,6 +9,6 @@ export class PacienteService {
     constructor(private http: HttpClient) { }
 
     listarPacientes() {
-        return this.http.get('http://localhost:8080/gerenciadorMedicamentos/rest/paciente/list/');
+        return this.http.get('http://localhost:8080/gerenciadorMedicamentos/rest/pacientes/read');
     }
 }
