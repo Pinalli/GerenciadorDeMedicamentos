@@ -10,7 +10,7 @@ public interface DoencaDAOInterface {
 
 	public ArrayList<DoencaModel> read();
 
-	public boolean delete(DoencaModel d);
+	public boolean delete(Integer d);
 
 	public boolean update(DoencaModel d);
 

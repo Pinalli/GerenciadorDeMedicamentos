@@ -19,7 +19,7 @@ public class DoencaService implements DoencaServiceInterface {
 	}
 
 	@Override
-	public boolean delete(DoencaModel d) {
+	public boolean delete(Integer d) {
 		return new DoencaDAO().delete(d);
 	}
 
