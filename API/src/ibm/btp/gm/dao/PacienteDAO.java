@@ -142,17 +142,23 @@ public class PacienteDAO implements PacienteDAOInterface {
 
 			ResultSet result = statement.executeQuery();
 
+			PacienteModel paciente = new PacienteModel();
+			if(!result.next()) {
+				return null;
+			}
+			paciente.setId(result.getInt("id"));
+			paciente.setNome(result.getString("nome"));
+			paciente.setGenero(result.getString("genero"));
+			paciente.setDoenca_1(result.getInt("doenca_1"));
+			paciente.setDoenca_2(result.getInt("doenca_2"));
+			paciente.setDoenca_3(result.getInt("doenca_3"));
+			paciente.setMedicamento_1(result.getInt("medicamento_1"));
+			paciente.setMedicamento_2(result.getInt("medicamento_2"));
+			paciente.setMedicamento_3(result.getInt("medicamento_3"));
 			statement.close();
 			connection.close();
 
-			if (result == null) {
-				throw new SQLException("Paciente not found");
-			}
-
-			return new PacienteModel(result.getInt("id"), result.getString("nome"), result.getString("genero"),
-					result.getInt("doenca_1"), result.getInt("medicamento_1"), result.getInt("doenca_2"),
-					result.getInt("medicamento_2"), result.getInt("doenca_3"), result.getInt("medicamento_3"));
-
+			return paciente;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;

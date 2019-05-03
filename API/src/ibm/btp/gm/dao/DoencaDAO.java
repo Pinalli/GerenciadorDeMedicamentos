@@ -56,15 +56,13 @@ public class DoencaDAO implements DoencaDAOInterface {
 	}
 
 	@Override
-	public boolean delete(DoencaModel d) {
+	public boolean delete(Integer d) {
 		try {
 			Connection connection = ConnectionFactory.getConnection();
 
-			String command = "DELETE FROM doencas WHERE id=?";
+			String command = "DELETE FROM doencas WHERE id=" + d.toString();
 
 			PreparedStatement statement = connection.prepareStatement(command);
-			statement.setInt(1, d.getId());
-
 			statement.executeUpdate();
 
 			statement.close();
@@ -112,16 +110,16 @@ public class DoencaDAO implements DoencaDAOInterface {
 			statement.setInt(1, Id);
 
 			ResultSet result = statement.executeQuery();
-
+			if (!result.next()) {
+				return null;
+			}
+			;
+			DoencaModel d = new DoencaModel(result.getInt("id"), result.getString("nome"),
+					result.getString("descricao"), result.getBoolean("agressividade"));
 			statement.close();
 			connection.close();
 
-			if (result == null) {
-				throw new SQLException("Doenca not found");
-			}
-
-			return new DoencaModel(result.getInt("id"), result.getString("nome"), result.getString("descricao"),
-					result.getBoolean("agressividade"));
+			return d;
 
 		} catch (SQLException e) {
 			e.printStackTrace();

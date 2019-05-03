@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DoencasService } from '../services/doencas.service';
+import { Doenca } from '../classes/Doenca';
 
 @Component({
   selector: 'app-listadoencas',
@@ -8,19 +9,18 @@ import { DoencasService } from '../services/doencas.service';
 })
 export class ListadoencasComponent implements OnInit {
 
-    doencas: any = [];
+    doencas: Doenca[] = [];
 
   constructor(private service: DoencasService) { }
 
   ngOnInit() {
-      this.service.listarDoencas().subscribe(
-          (data: any) => {
-        const results = data;
-        for (const doenca of results) {
-            this.doencas.push(doenca);
-            }
-        }
+      this.service.read().subscribe(
+          (data: Doenca[]) => { this.doencas = data; }
       );
+  }
+
+  delete(doenca: Doenca) {
+    this.service.delete(doenca).subscribe();
   }
 
 }
