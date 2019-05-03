@@ -25,12 +25,9 @@ export class HistoricoService {
     }
 
     criarHistorico(historico): Observable<Historico> {
-        const headers = new HttpHeaders();
-        headers.append('Accept', 'application/json');
-        headers.append('Content-Type', 'application/json');
 
         return this.http.post<Historico>(this.apiURL + 'add',
-         JSON.stringify(historico), { headers }).
+         JSON.stringify(historico), this.httpOptions).
             pipe(
                 retry(1), catchError(this.handleError));
     }

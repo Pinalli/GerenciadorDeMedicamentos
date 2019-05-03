@@ -30,11 +30,11 @@ public class HistoricoWebService {
 	@Path("/add")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public boolean incluirHistorico(String sHistoricoModel) {
-		Gson gson = new GsonBuilder().create();
-		HistoricoModel historicoModel = gson.fromJson(sHistoricoModel, HistoricoModel.class);
+	public boolean incluirHistorico(HistoricoModel  historicoModel) {
+		//Gson gson = new GsonBuilder().create();
+	//	HistoricoModel historicoModel = gson.fromJson(sHistoricoModel, HistoricoModel.class);
 		
-		System.out.println("teste teste " + historicoModel.getIdPaciente() +  sHistoricoModel);
+	//	System.out.println("teste teste " + historicoModel.getIdPaciente() +  sHistoricoModel);
 		return new HistoricoService().incluir(historicoModel);
 	}
 

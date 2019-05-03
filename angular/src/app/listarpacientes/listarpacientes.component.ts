@@ -28,9 +28,9 @@ export class ListarpacientesComponent implements OnInit {
         debugger;
         const historicoTela = {} as Historico;
 
-        historicoTela.iddoenca = paciente.doenca_1;
-        historicoTela.idpaciente = paciente.id;
-        historicoTela.idmedicamento = paciente.medicamento_1;
+        historicoTela.idDoenca = paciente.doenca_1;
+        historicoTela.idPaciente = paciente.id;
+        historicoTela.idMedicamento = paciente.medicamento_1;
 
         this.service.aplicarMedicamento(historicoTela);
     }

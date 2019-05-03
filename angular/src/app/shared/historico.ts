@@ -1,5 +1,5 @@
 export class Historico {
-    idpaciente: number;
-    idmedicamento: number;
-    iddoenca: number;
+    idPaciente: number;
+    idMedicamento: number;
+    idDoenca: number;
 }

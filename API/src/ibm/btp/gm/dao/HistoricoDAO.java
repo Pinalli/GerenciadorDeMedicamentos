@@ -16,15 +16,14 @@ public class HistoricoDAO implements HistoricoDAOInterface {
 	public boolean create(HistoricoModel h) {
 		try {
 			Connection connection = ConnectionFactory.getConnection();
-			String command = "INSERT INTO historico(idmedicamento,datahora,idpaciente, iddoenca) VALUES (?,?,?,?)";
+			String command = "INSERT INTO historico(idmedicamento,datahora,idpaciente, iddoenca) VALUES (?,CURRENT_TIMESTAMP,?,?)";
 			PreparedStatement statement = connection.prepareStatement(command);
 			statement.setInt(1, h.getIdMedicamento());
-			statement.setTimestamp(2, h.getDataHora());
-			statement.setInt(3, h.getIdPaciente());
-			statement.setInt(4, h.getIdDoenca());
+			statement.setInt(2, h.getIdPaciente());
+			statement.setInt(3, h.getIdDoenca());
 
 			statement.executeUpdate();
-
+			
 			statement.close();
 			connection.close();
 			return true;
