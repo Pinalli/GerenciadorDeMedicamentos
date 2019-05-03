@@ -17,45 +17,49 @@ import ibm.btp.gm.model.DoencaModel;
 import ibm.btp.gm.services.DoencaService;
 
 @Path("/doenca")
-public class DoencaWebService implements DoencaWebServiceInterface{
+public class DoencaWebService implements DoencaWebServiceInterface {
 
 	public DoencaWebService() {
 
 	}
 
+	@Override
 	@GET
 	@Path("/read")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<DoencaModel> read() {
 		return new DoencaService().read();
 	}
-	
+
+	@Override
 	@POST
 	@Path("/post")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public boolean create(DoencaModel d) {
 		return new DoencaService().create(d);
 	}
-	
+
+	@Override
 	@PUT
 	@Path("/put")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public boolean update(DoencaModel d) {
 		return new DoencaService().update(d);
 	}
-	
+
+	@Override
 	@DELETE
-	@Path("/delete")
+	@Path("/delete/{id}")
 	@Consumes(MediaType.APPLICATION_JSON)
-	public boolean delete(DoencaModel d) {
-		return new DoencaService().delete(d);
+	public boolean delete(@PathParam("id") Integer id) {
+		return new DoencaService().delete(id);
 	}
-	
+
+	@Override
 	@GET
-	@Path("/{id}")
+	@Path("/read/{id}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public DoencaModel readById(@PathParam("id") int id)
-	{
+	public DoencaModel readById(@PathParam("id") int id) {
 		return new DoencaService().readById(id);
 	}
 

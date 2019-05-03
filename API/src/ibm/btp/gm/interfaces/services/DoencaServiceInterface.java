@@ -10,7 +10,7 @@ public interface DoencaServiceInterface {
 
 	public boolean create(DoencaModel d);
 
-	public boolean delete(DoencaModel d);
+	public boolean delete(Integer d);
 
 	public boolean update(DoencaModel d);
 
