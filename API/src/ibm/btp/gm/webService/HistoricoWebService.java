@@ -12,6 +12,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import ibm.btp.gm.interfaces.webServices.HistoricoWebServiceInterface;
 import ibm.btp.gm.model.HistoricoModel;
 import ibm.btp.gm.services.HistoricoService;
@@ -30,6 +33,13 @@ public class HistoricoWebService implements HistoricoWebServiceInterface {
 	@POST
 	@Path("/create")
 	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public boolean incluirHistorico(String sHistoricoModel) {
+		Gson gson = new GsonBuilder().create();
+		HistoricoModel historicoModel = gson.fromJson(sHistoricoModel, HistoricoModel.class);
+		
+		System.out.println("teste teste " + historicoModel.getIdPaciente() +  sHistoricoModel);
+		return new HistoricoService().incluir(historicoModel);
 	public boolean create(HistoricoModel h) {
 		return new HistoricoService().create(h);
 	}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PacienteService } from '../services/paciente.service';
-import { HistoricoService } from '../services/historico.service';
+import { Historico } from '../shared/historico';
 
 @Component({
     selector: 'app-listarpacientes',
@@ -22,7 +22,17 @@ export class ListarpacientesComponent implements OnInit {
                 }
             }
         );
+
     }
+    aplicaMedicamento(paciente: any) {
+        debugger;
+        const historicoTela = {} as Historico;
+
+        historicoTela.iddoenca = paciente.doenca_1;
+        historicoTela.idpaciente = paciente.id;
+        historicoTela.idmedicamento = paciente.medicamento_1;
+
+        this.service.aplicarMedicamento(historicoTela);
+    }
+
 }
-
-
