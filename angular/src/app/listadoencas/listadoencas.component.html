@@ -7,10 +7,13 @@
                 <th class="thlistadoencas">agressividade</th>
             </tr>
             <tr class="trlistadoencas" *ngFor="let doenca of doencas">
-                <td class="thlistadoencas">{{doenca.nome}}</td>
-                <td class="thlistadoencas">{{doenca.descricao}}</td>
-                <td class="thlistadoencas">{{doenca.agressividade}}</td>
+                <td class="tdlistadoencas">{{doenca.nome}}</td>
+                <td class="tdlistadoencas">{{doenca.descricao}}</td>
+                <td class="tdlistadoencas">{{doenca.agressividade}}</td>
+                <td class="tdlistadoencas"><button type="submit" (click)="delete(doenca)" value="delete" class="btnlistadoencas">Delete</button></td>
             </tr>
         </table>
     </div>
 </div>
+
+<button type="submit" (click)="reload()">refresh</button>

@@ -22,12 +22,7 @@ export class ListarpacientesComponent implements OnInit {
                 }
             }
         );
-
     }
-      
-      medicar(paciente: any) {
-        this.HistoricoService.medicar(paciente);
-      }
-    }
+}
 
 
